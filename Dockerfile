@@ -11,4 +11,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 \
   && rm -rf /var/lib/apt/lists/* \
   && docker-php-ext-install -j$(nproc) bcmath mcrypt pdo pdo_mysql mysqli dom json xml tokenizer curl mbstring simplexml intl\
   && pecl install mongodb \
-  && docker-php-ext-enable mongodb apcu
+  && pecl install apcu \
+  && docker-php-ext-enable mongodb \
+  && docker-php-ext-enable apcu
